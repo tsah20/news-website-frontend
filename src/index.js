@@ -1,13 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const Component = () => (
-  <div>
-    <h1>TNY Tech Test Boilerplate App</h1>
-    <p>Happy coding!</p>
-  </div>
-);
+import App from './App'
 
-const appRoot = document.getElementById('app-root');
+const appRoot = document.getElementById('app-root')
 
-ReactDOM.render(<Component />, appRoot);
+ReactDOM.render(<App />, appRoot)

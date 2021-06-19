@@ -1,27 +1,33 @@
-const path = require('path');
-const babelConfig = require('./babel.config.json');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const babelConfig = require("./babel.config.json");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  mode: "development",
+  entry: "./src/index.js",
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, './public/js')
+    filename: "app.js",
+    path: path.resolve(__dirname, "./public/js"),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|pubilc)/,
         use: {
-          loader: 'babel-loader',
-          options: babelConfig
-        }
+          loader: "babel-loader",
+          options: babelConfig,
+        },
       },
       {
         test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  }
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 };

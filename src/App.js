@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-import { AppBar, Toolbar, useMediaQuery } from '@material-ui/core'
-import { ThemeProvider } from '@material-ui/core/styles'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { AppBar, Toolbar, useMediaQuery } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import theme from './theme/Theme.js'
-import DesktopHeader from './components/headers/DesktopHeader.js'
-import MobileHeader from './components/headers/MobileHeader.js'
-import Feed from './components/Feed'
-import Blog from './components/Blog'
-import Explore from './components/Explore'
-import Authors from './components/Author'
+import theme from './theme/Theme.js';
+import DesktopHeader from './components/headers/DesktopHeader.js';
+import MobileHeader from './components/headers/MobileHeader.js';
+import SearchBar from './components/SearchBar';
+import Blog from './components/Blog';
+import Explore from './components/Explore';
+import Authors from './components/Author';
 
 export default function App() {
-  const showText = useMediaQuery(theme.breakpoints.down('sm'))
+  const showText = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -21,10 +21,9 @@ export default function App() {
           <Toolbar>{showText ? <MobileHeader /> : <DesktopHeader />}</Toolbar>
         </AppBar>
         <Toolbar />
-
         <Switch>
           <Route exact path='/feed'>
-            <Feed />
+            <SearchBar />
           </Route>
           <Route exact path='/authors'>
             <Authors />
@@ -40,5 +39,5 @@ export default function App() {
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
-  )
+  );
 }

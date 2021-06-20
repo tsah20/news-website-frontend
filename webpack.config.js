@@ -1,6 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
-const babelConfig = require('./babel.config.json')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const babelConfig = require('./babel.config.json');
 
 module.exports = {
   mode: 'development',
@@ -34,5 +34,8 @@ module.exports = {
     alias: {
       Component: path.resolve(__dirname, 'src/components/')
     }
+  },
+  devServer: {
+    historyApiFallback: true
   }
-}
+};

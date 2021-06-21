@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function SearchBar(props) {
+export default function SearchBar() {
   const classes = useStyles()
 
   const [searchNews, setSearchNews] = useState([])
@@ -80,11 +80,16 @@ export default function SearchBar(props) {
   return (
     <React.Fragment>
       <Paper component='form' className={classes.root}>
-        <InputBase className={classes.input} onChange={props.onInputChange} fullWidth={true} placeholder='Search News with keywords' inputProps={{ 'aria-label': 'search news' }} />
-        <IconButton type='submit' onClick={props.onSubmit} className={classes.iconButton} aria-label='search'>
+        <InputBase className={classes.input} onChange={handleChange} fullWidth={true} placeholder='Search News with keywords' inputProps={{ 'aria-label': 'search news' }} />
+        <IconButton type='submit' onClick={handleSearch} className={classes.iconButton} aria-label='search'>
           <SearchIcon />
         </IconButton>
       </Paper>
+      {isLoading && <CircularProgress className='classes.loader' />}
+      {!isLoading && !searchNews.length && firstRequest && <NoResultFound />}
+
+      {!isLoading && viewResolver()}
+      {pages && <Pagination count={pages} page={page} onChange={handlePageChange} defaultPage={1} className={classes.pagination} color='primary' size='large' showFirstButton showLastButton />}
     </React.Fragment>
   )
 }

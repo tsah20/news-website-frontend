@@ -6,7 +6,8 @@ import Technology from '../components/Technology'
 import NewsFeed from '../components/NewsFeed'
 import NewsDetailPage from '../components/NewsDetailPage'
 import NewsPostMobile from '../components/NewsPostMobile'
-import SearchBar from '../components/SearchBar.js'
+import SearchBar from '../components/SearchBar'
+import Home from '../components/Home'
 
 export default function NavRoutes() {
   return (
@@ -16,7 +17,7 @@ export default function NavRoutes() {
       </Route>
 
       <Route exact path='/home'>
-        <SearchBar />
+        <Home />
       </Route>
 
       <Route exact path='/feed'>

@@ -11,6 +11,7 @@ import theme from '../theme/Theme.js'
 import NewsPost from './NewsPostWeb'
 import NewsPostMobile from './NewsPostMobile'
 import NoResultFound from './NoResultFound'
+import SearchBar from './SearchBar'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function SearchBar(props) {
+export default function Home() {
   const classes = useStyles()
 
   const [searchNews, setSearchNews] = useState([])
@@ -79,12 +80,12 @@ export default function SearchBar(props) {
 
   return (
     <React.Fragment>
-      <Paper component='form' className={classes.root}>
-        <InputBase className={classes.input} onChange={props.onInputChange} fullWidth={true} placeholder='Search News with keywords' inputProps={{ 'aria-label': 'search news' }} />
-        <IconButton type='submit' onClick={props.onSubmit} className={classes.iconButton} aria-label='search'>
-          <SearchIcon />
-        </IconButton>
-      </Paper>
+      <SearchBar onInputChange={handleChange} onSubmit={handleSearch} />
+      {isLoading && <CircularProgress className='classes.loader' />}
+      {!isLoading && !searchNews.length && firstRequest && <NoResultFound />}
+
+      {!isLoading && viewResolver()}
+      {pages && <Pagination count={pages} page={page} onChange={handlePageChange} defaultPage={1} className={classes.pagination} color='primary' size='large' showFirstButton showLastButton />}
     </React.Fragment>
   )
 }

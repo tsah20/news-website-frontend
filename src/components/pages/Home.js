@@ -12,6 +12,7 @@ import NewsPost from '../news-card/NewsPostWeb'
 import NewsPostMobile from '../news-card/NewsPostMobile'
 import NoResultFound from './NoResultFound'
 import SearchBar from '../SearchBar'
+import Footer from '../Footer'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +35,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '2%',
     marginRight: '10%',
     float: 'right'
+  },
+  emptyContainerFoot: {
+    position: 'fixed'
+  },
+
+  postContainerFoot: {
+    position: 'static'
   }
 }))
 
@@ -78,6 +86,7 @@ export default function Home() {
     return searchNews.map((post) => (mobileContent ? <NewsPostMobile key={post.title} post={post} /> : <NewsPost key={post.title} post={post} />))
   }
 
+  const customClass = searchNews.length ? classes.postContainerFoot : classes.emptyContainerFoot
   return (
     <React.Fragment>
       <SearchBar onInputChange={handleChange} onSubmit={handleSearch} />
@@ -86,6 +95,8 @@ export default function Home() {
 
       {!isLoading && viewResolver()}
       {pages && <Pagination count={pages} page={page} onChange={handlePageChange} defaultPage={1} className={classes.pagination} color='primary' size='large' showFirstButton showLastButton />}
+
+      <Footer customClass={customClass} />
     </React.Fragment>
   )
 }

@@ -8,6 +8,7 @@ import NewsPost from '../news-card/NewsPostWeb'
 import NewsPostMobile from '../news-card/NewsPostMobile'
 import { useMediaQuery, Badge, Typography, CircularProgress } from '@material-ui/core'
 import useHttp from '../../hooks/use-http'
+import Footer from '../Footer'
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -50,6 +51,7 @@ export default function NewsFeed() {
       {isLoading && <CircularProgress className='classes.loader' />}
 
       {topNews.map((post) => (mobileContent ? <NewsPostMobile key={post.title} post={post} /> : <NewsPost key={post.title} post={post} />))}
+      {!isLoading && topNews.length && <Footer />}
     </React.Fragment>
   )
 }

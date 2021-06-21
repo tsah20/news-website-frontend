@@ -23,20 +23,24 @@ export default function MobileHeader() {
 
   const headersData = [
     {
+      label: 'HOME',
+      href: '/home'
+    },
+    {
       label: 'FEED',
       href: '/feed'
     },
     {
-      label: 'AUTHORS',
-      href: '/authors'
+      label: 'USA',
+      href: '/usa'
     },
     {
-      label: 'EXPLORE',
-      href: '/explore'
+      label: 'TECHNOLOGY',
+      href: '/techbology'
     },
     {
-      label: 'BLOG',
-      href: '/blog'
+      label: 'BUSINESS',
+      href: '/business'
     }
   ]
 

@@ -1,15 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
-import { Paper, InputBase, IconButton, useMediaQuery, CircularProgress } from '@material-ui/core/'
-import SearchIcon from '@material-ui/icons/Search'
-import Pagination from '@material-ui/lab/Pagination'
-
-import useHttp from '../hooks/use-http'
-
-import theme from '../theme/Theme.js'
-import NewsPost from './NewsPostWeb'
-import NewsPostMobile from './NewsPostMobile'
+import { Paper } from '@material-ui/core/'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +10,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     width: '80%',
     marginTop: '2%',
-    margin: 'auto'
+    margin: 'auto',
+    padding: '1.5em',
+    border: '1px solid red'
   }
 }))
 

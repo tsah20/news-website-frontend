@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NewsPost() {
+function NewsDetailPage() {
   return (
     <div>
       <h2>Explore</h2>
@@ -8,4 +8,4 @@ function NewsPost() {
   )
 }
 
-export default NewsPost
+export default NewsDetailPage

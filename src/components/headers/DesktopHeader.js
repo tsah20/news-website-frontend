@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Tabs, Tab } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -11,21 +11,27 @@ const useStyles = makeStyles({
     marginLeft: 'auto'
   },
   tab: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Montserrat',
     fontWeight: 700
   }
 })
 
 export default function DesktopHeader() {
   const classes = useStyles()
+  const [value, setValue] = useState('home')
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+
   return (
     <React.Fragment>
       <BrandName />
       <Tabs className={classes.tabContainer}>
-        <Tab className={classes.tab} label='FEED' value='/feed' component={Link} to={'/feed'}></Tab>
-        <Tab className={classes.tab} label='AUTHORS' value='/authors' component={Link} to={'/authors'}></Tab>
-        <Tab className={classes.tab} label='EXPLORE'></Tab>
-        <Tab className={classes.tab} label='BLOG'></Tab>
+        <Tab className={classes.tab} label='HOME' value='/feed' component={Link} to={'/home'}></Tab>
+        <Tab className={classes.tab} label='FEED' value='/authors' component={Link} to={'/feed'}></Tab>
+        <Tab className={classes.tab} label='USA'></Tab>
+        <Tab className={classes.tab} label='TECHNOLOGY'></Tab>
       </Tabs>
     </React.Fragment>
   )

@@ -1,13 +1,11 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import Business from '../components/Business'
-import Technology from '../components/Technology'
-import NewsFeed from '../components/NewsFeed'
-import NewsDetailPage from '../components/NewsDetailPage'
-import NewsPostMobile from '../components/NewsPostMobile'
-import SearchBar from '../components/SearchBar'
-import Home from '../components/Home'
+import Business from '../components/pages/Business'
+import Technology from '../components/pages/Technology'
+import NewsFeed from '../components/pages/NewsFeed'
+import NewsDetailPage from '../components/pages/NewsDetailPage'
+import Home from '../components/pages/Home'
 
 export default function NavRoutes() {
   return (
@@ -25,7 +23,7 @@ export default function NavRoutes() {
       </Route>
 
       <Route exact path='/usa'>
-        <NewsPostMobile />
+        <NewsFeed />
       </Route>
 
       <Route exact path='/technology'>

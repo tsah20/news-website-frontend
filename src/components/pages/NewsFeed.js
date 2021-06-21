@@ -3,12 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 
-import theme from '../theme/Theme.js'
-import SearchBar from './SearchBar'
-import NewsPost from './NewsPostWeb'
-import NewsPostMobile from './NewsPostMobile'
-import { Hidden, useMediaQuery, Badge, Typography, CircularProgress } from '@material-ui/core'
-import useHttp from '../hooks/use-http'
+import theme from '../../theme/Theme.js'
+import NewsPost from '../news-card/NewsPostWeb'
+import NewsPostMobile from '../news-card/NewsPostMobile'
+import { useMediaQuery, Badge, Typography, CircularProgress } from '@material-ui/core'
+import useHttp from '../../hooks/use-http'
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -27,15 +26,13 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function NewsFeed() {
+  const mobileContent = useMediaQuery(theme.breakpoints.down('sm'))
+
   const classes = useStyles()
   const [topNews, setTopNews] = useState([])
-  const [pages, setPages] = useState(1)
-  const [page, setPage] = React.useState(1)
 
   const httpData = useHttp()
-
   const { isLoading, error, sendRequest: fetchNews } = httpData
-  const mobileContent = useMediaQuery(theme.breakpoints.down('sm'))
 
   useEffect(() => {
     const transformNews = (data) => {

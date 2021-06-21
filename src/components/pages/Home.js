@@ -5,13 +5,13 @@ import { Paper, InputBase, IconButton, useMediaQuery, CircularProgress } from '@
 import SearchIcon from '@material-ui/icons/Search'
 import Pagination from '@material-ui/lab/Pagination'
 
-import useHttp from '../hooks/use-http'
+import useHttp from '../../hooks/use-http'
 
-import theme from '../theme/Theme.js'
-import NewsPost from './NewsPostWeb'
-import NewsPostMobile from './NewsPostMobile'
+import theme from '../../theme/Theme.js'
+import NewsPost from '../news-card/NewsPostWeb'
+import NewsPostMobile from '../news-card/NewsPostMobile'
 import NoResultFound from './NoResultFound'
-import SearchBar from './SearchBar'
+import SearchBar from '../SearchBar'
 
 const useStyles = makeStyles((theme) => ({
   root: {

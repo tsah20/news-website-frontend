@@ -1,8 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Typography, CardActionArea, Card, CardContent, CardMedia, Hidden } from '@material-ui/core'
-
-import { Link } from 'react-router-dom'
+import { Grid, Typography, CardActionArea, Card, CardContent, CardMedia, Hidden, Link } from '@material-ui/core'
 
 const useStyles = makeStyles({
   grid: {
@@ -41,7 +39,9 @@ export default function NewsPost(props) {
               <Typography variant='subtitle1' component='p'>
                 {props.post.description}
               </Typography>
-              <Link to={{ pathname: '/detail', state: { post: props.post } }}> Continue reading...</Link>
+              <Link variant='body2' href={props.post.url} target='_blank' rel='noopener'>
+                Continue Reading
+              </Link>
             </CardContent>
           </div>
           <Hidden xsDown>

@@ -7,7 +7,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import theme from './theme/Theme.js'
 import DesktopHeader from './components/headers/DesktopHeader.js'
 import NavRoutes from './routes/NavRoutes.js'
-
 import MobileHeader from './components/headers/MobileHeader.js'
 
 export default function App() {

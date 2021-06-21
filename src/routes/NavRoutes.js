@@ -6,6 +6,7 @@ import Technology from '../components/pages/Technology'
 import NewsFeed from '../components/pages/NewsFeed'
 import NewsDetailPage from '../components/pages/NewsDetailPage'
 import Home from '../components/pages/Home'
+import NotFound404 from '../components/pages/NotFound404'
 
 export default function NavRoutes() {
   return (
@@ -36,6 +37,10 @@ export default function NavRoutes() {
 
       <Route exact path='/detail'>
         <NewsDetailPage />
+      </Route>
+
+      <Route exact path='/'>
+        <NotFound404 />
       </Route>
     </Switch>
   )

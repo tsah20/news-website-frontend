@@ -8,8 +8,8 @@ import Pagination from '@material-ui/lab/Pagination'
 import useHttp from '../hooks/use-http'
 
 import theme from '../theme/Theme.js'
-import NewsPost from './NewsPostWeb'
-import NewsPostMobile from './NewsPostMobile'
+import NewsPost from './news-card/NewsPostWeb'
+import NewsPostMobile from './news-card/NewsPostMobile'
 import NoResultFound from './NoResultFound'
 
 const useStyles = makeStyles((theme) => ({

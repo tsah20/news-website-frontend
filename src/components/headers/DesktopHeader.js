@@ -28,10 +28,10 @@ export default function DesktopHeader() {
     <React.Fragment>
       <BrandName />
       <Tabs className={classes.tabContainer}>
-        <Tab className={classes.tab} label='HOME' value='/feed' component={Link} to={'/home'}></Tab>
-        <Tab className={classes.tab} label='FEED' value='/authors' component={Link} to={'/feed'}></Tab>
-        <Tab className={classes.tab} label='USA'></Tab>
-        <Tab className={classes.tab} label='TECHNOLOGY'></Tab>
+        <Tab className={classes.tab} label='HOME' value='/home' component={Link} to={'/home'}></Tab>
+        <Tab className={classes.tab} label='FEED' value='/feed' component={Link} to={'/feed'}></Tab>
+        <Tab className={classes.tab} label='USA' value='/usa'></Tab>
+        <Tab className={classes.tab} label='TECHNOLOGY' value='/technology'></Tab>
       </Tabs>
     </React.Fragment>
   )

@@ -12,17 +12,18 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '2%',
     margin: 'auto',
     padding: '1.5em',
-    border: '1px solid red'
+    border: '1px solid red',
+    height: '50%'
   }
 }))
 
-export default function NoResultFound() {
+export default function NotFound404() {
   const classes = useStyles()
 
   return (
     <React.Fragment>
-      <Paper component='form' className={classes.root}>
-        Uh Oh! No Results found
+      <Paper component='div' className={classes.root}>
+        Invalid URL
       </Paper>
     </React.Fragment>
   )

@@ -1,4 +1,4 @@
-### Installation
+### Instructions to run the frontend Server
 
 ```
 git clone https://github.com/tsah20/news-website-frontend
@@ -6,11 +6,13 @@ npm install
 npm start
 ```
 
+visit [http://localhost:8080](http://localhost:8080) to interact with frontend.
+
 ### Screens
 
 #### Home Screen
 
-![Home Screen ](./assets/home-page.png)
+![Home Screen ](./assets/home.png)
 
 #### Home Screen with paginated search results
 

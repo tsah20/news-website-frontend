@@ -46,7 +46,7 @@ npm start
 - Backend Test Cases
 - Frontend Test Cases (In Progress)
 
-#### Limitation in the NewsAPI in free tier
+### Limitation in the NewsAPI in free tier
 
 1. Only 100 requests can be made in a day
 2. At max 100 results of a search keyword can be viewed

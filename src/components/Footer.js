@@ -23,20 +23,20 @@ export default function Footer(props) {
         <Container maxWidth='lg'>
           <Grid container spacing={5}>
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Help</Box>
+              <Box borderBottom={1}>Header 1</Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  Contact
+                  Link 1
                 </Link>
               </Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  hh
+                  Link 2
                 </Link>
               </Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  hhhs
+                  Link 3
                 </Link>
               </Box>
             </Grid>
@@ -45,36 +45,36 @@ export default function Footer(props) {
               <Box borderBottom={1}>Header 2</Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  Service
+                  Link 1
                 </Link>
               </Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  Service1
+                  Link 2
                 </Link>
               </Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  Service3
+                  Link 3
                 </Link>
               </Box>
             </Grid>
 
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Help</Box>
+              <Box borderBottom={1}>Header 3</Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  Header3
+                  Link 1
                 </Link>
               </Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  hh
+                  Link 2
                 </Link>
               </Box>
               <Box>
                 <Link href='/' color='inherit'>
-                  hhhs
+                  Link 3
                 </Link>
               </Box>
             </Grid>

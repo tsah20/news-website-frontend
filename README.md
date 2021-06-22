@@ -18,6 +18,10 @@ visit [http://localhost:8080](http://localhost:8080) to interact with frontend.
 
 ![Home Screen with search results ](./assets/search-footer.png)
 
+#### Home Screen for mobile View
+
+![Home Screen with mobile view ](./assets/mobile.png)
+
 #### Home Screen when keyword is not found
 
 ![No result ](./assets/no-result.png)

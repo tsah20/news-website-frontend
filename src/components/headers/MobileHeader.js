@@ -36,7 +36,7 @@ export default function MobileHeader() {
     },
     {
       label: 'TECHNOLOGY',
-      href: '/techbology'
+      href: '/technology'
     },
     {
       label: 'BUSINESS',

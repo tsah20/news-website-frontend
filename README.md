@@ -1,6 +1,32 @@
+### Screens
+
+![Home Screen with the Search Bar] (./assets/home-page.png)
+
 ### Features
 
+- Search News By keyword.
+- Most Recent News Feed of the world
+- Recent news By Category:
+  - Country
+  - Technology
+
+### Tasks Completed
+
+- Responsive Website
+- Error Handling (Backend + Frontend )
+- Connected with Node JS server in the backend
+- Most of the Components are A11Y Compliant
+- Can load more data through navigation buttons (Feature only implemented for the search Page)
+- Backend Test Cases
+- Frontend Test Cases (In Progress)
+
 ### Installation
+
+```
+git clone https://github.com/tsah20/news-website-frontend
+npm install
+npm start
+```
 
 #### Limitation in the NewsAPI in free tier
 

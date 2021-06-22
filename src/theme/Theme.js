@@ -1,15 +1,15 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
-const arcBlue = '#0B72B9'
-const arcOrange = '#FFBA60'
+const violet = '#293E6A'
+const gothic = '#719195'
 export default createMuiTheme({
   palette: {
     common: {},
     primary: {
-      main: `${arcBlue}`
+      main: `${violet}`
     },
     secondary: {
-      main: `${arcOrange}`
+      main: `${gothic}`
     }
   },
   typography: {

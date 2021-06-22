@@ -93,8 +93,8 @@ export default function Home() {
       {isLoading && <CircularProgress className='classes.loader' />}
       {!isLoading && !searchNews.length && firstRequest && <NoResultFound />}
 
-      {!isLoading && viewResolver()}
-      {pages && <Pagination count={pages} page={page} onChange={handlePageChange} defaultPage={1} className={classes.pagination} color='primary' size='large' showFirstButton showLastButton />}
+      {isLoading === false && viewResolver()}
+      {!!pages && <Pagination count={pages} page={page} onChange={handlePageChange} defaultPage={1} className={classes.pagination} color='primary' size='large' showFirstButton showLastButton />}
 
       <Footer customClass={customClass} />
     </React.Fragment>

@@ -1,21 +1,26 @@
-import React from 'react'
+import React from "react";
 
-import { Typography, makeStyles } from '@material-ui/core'
+import { makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   logo: {
-    fontFamily: 'Work Sans, sans-serif',
+    fontFamily: "Work Sans, sans-serif",
     fontWeight: 600,
-    color: '#FFFEFE',
-    textAlign: 'left'
-  }
-})
+    color: "#FFFEFE",
+    textAlign: "left",
+  },
+});
 
-export default function BrandName() {
-  const classes = useStyles()
+/**
+ *  Component Brand Name
+ *  Renders the name/title of the webpage
+ *  @param props.text
+ */
+export default function BrandName({ brandName }) {
+  const classes = useStyles();
   return (
-    <Typography variant='h6' component='h1' className={classes.logo}>
-      TNY-TECH-TEST
+    <Typography variant="h6" component="h1" className={classes.logo}>
+      {brandName}
     </Typography>
-  )
+  );
 }

@@ -1,44 +1,43 @@
-import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-import NewsFeed from '../components/pages/NewsFeed'
-import NewsDetailPage from '../components/pages/NewsDetailPage'
-import Home from '../components/pages/Home'
-import CountryFeed from '../components/pages/CountryFeed'
-import TechnologyFeed from '../components/pages/TechnologyFeed'
-
-import NotFound404 from '../components/pages/NotFound404'
+import WorldNews from "../pages/WorldNews";
+import NewsDetailPage from "../pages/NewsDetailPage";
+import SearchNews from "../pages/SearchNews";
+import USNews from "../pages/LocalNews";
+import TechNews from "../pages/TechNew";
+import NotFound404 from "../pages/NotFound404";
 
 export default function NavRoutes() {
   return (
     <Switch>
-      <Route exact path='/'>
-        <Redirect to='/home' />
+      <Route exact path="/">
+        <Redirect to="/search" />
       </Route>
 
-      <Route exact path='/home'>
-        <Home />
+      <Route exact path="/search">
+        <SearchNews />
       </Route>
 
-      <Route exact path='/feed'>
-        <NewsFeed />
+      <Route exact path="/world">
+        <WorldNews />
       </Route>
 
-      <Route exact path='/usa'>
-        <CountryFeed />
+      <Route exact path="/usa">
+        <USNews />
       </Route>
 
-      <Route exact path='/technology'>
-        <TechnologyFeed />
+      <Route exact path="/technology">
+        <TechNews />
       </Route>
 
-      <Route exact path='/detail'>
+      <Route exact path="/detail">
         <NewsDetailPage />
       </Route>
 
-      <Route exact path='/'>
+      <Route exact path="/">
         <NotFound404 />
       </Route>
     </Switch>
-  )
+  );
 }

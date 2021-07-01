@@ -68,7 +68,7 @@ export default function SearchNews() {
 
   const handleSearch = (event, page = 1) => {
     event.preventDefault();
-    const searchKey = inputRef.current.value;
+    const searchKey = inputRef.curent.value;
     const updateNewsData = (data) => {
       setSearchNews(data);
       /* Free API can only fetch 100 news**/

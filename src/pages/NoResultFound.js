@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NoResultFound() {
   const classes = useStyles()
-
   return (
     <React.Fragment>
       <Paper component='form' className={classes.root}>

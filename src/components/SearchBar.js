@@ -30,7 +30,7 @@ export const SearchBar = React.forwardRef(({ onSubmit }, ref) => {
   const classes = useStyles();
 
   const handleChange = (event) => {
-    event.preventDefault();
+    event.target.preventDefault();
   };
   return (
     <React.Fragment>
@@ -40,7 +40,7 @@ export const SearchBar = React.forwardRef(({ onSubmit }, ref) => {
           inputRef={ref}
           className={classes.input}
           fullWidth={true}
-          placeholder="Search News with keywords"
+          placeholder="Search news with keywords"
           inputProps={{ "aria-label": "search news" }}
         />
         <IconButton

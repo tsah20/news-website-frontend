@@ -45,6 +45,7 @@ export default function GenericNewsPage({ newsQueryString, newsCategory }) {
   const { isLoading, error, sendRequest: fetchNews } = useHttp();
 
   useEffect(() => {
+
     const transformNews = (data) => {
       setCategoryNews(data.articles);
       setPages(Math.round(data.totalResults / 5));

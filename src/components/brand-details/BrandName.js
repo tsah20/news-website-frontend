@@ -18,6 +18,7 @@ const useStyles = makeStyles({
  */
 export default function BrandName({ brandName }) {
   const classes = useStyles();
+
   return (
     <Typography
       data-test="component-brandname"

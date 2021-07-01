@@ -7,7 +7,9 @@ import BrandName from "./BrandName";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const setup = () => shallow(<BrandName />);
+const brandName = "TNY-TECH-TEST";
+
+const setup = () => shallow(<BrandName brandName="TNY-TECH-TEST" />);
 
 const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test='${val}']`);
 
@@ -20,9 +22,10 @@ test("render non empty component without crashing", () => {
   expect(wrapper.exists()).toBe(true);
 });
 
-test("check if header name is correct", () => {
+test("checks if header name is correct", () => {
   const wrapper = setup();
-  const appComponent = findByTestAttr(wrapper, "component-brandname").text();
-
-  expect(appComponent).toBe("TNY-TECH-TEST");
+  const wrapperprops = wrapper.props().children;
+  const textElement = findByTestAttr(wrapper, "component-brandname");
+  const textElementText = textElement.text();
+  expect(textElementText).toEqual(wrapperprops);
 });

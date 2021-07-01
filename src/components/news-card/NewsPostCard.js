@@ -20,7 +20,6 @@ const useStyles = makeStyles({
   },
   card: {
     display: "flex",
-
     width: "100%",
   },
   cardDetails: {
@@ -29,41 +28,52 @@ const useStyles = makeStyles({
   cardMedia: {
     width: "30%",
   },
+  cardMediaMobile: {
+    height: 140,
+  },
 });
 
-export default function NewsPost(props) {
+/**
+ *  @Component News card
+ *  @param news article from the JSOn respons of API
+ */
+export default function NewsPostCard({ newsArticle }) {
   const classes = useStyles();
 
   return (
     <Grid item xs={12} md={12} lg={8} className={classes.grid}>
-      <CardActionArea>
+      <CardActionArea
+        component="a"
+        href={newsArticle.url}
+        target="_blank"
+        rel="noopener"
+      >
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
+            <Hidden smUp>
+              <CardMedia
+                className={classes.cardMediaMobile}
+                image={newsArticle.urlToImage}
+                title={newsArticle.title}
+              />
+            </Hidden>
             <CardContent>
               <Typography component="h6" variant="h6">
-                {props.post.title}
+                {newsArticle.title}
               </Typography>
               <Typography variant="subtitle1" color="textSecondary">
-                {props.post.publishedAt}
+                {newsArticle.publishedAt}
               </Typography>
               <Typography variant="subtitle1" component="p">
-                {props.post.description}
+                {newsArticle.description}
               </Typography>
-              <Link
-                variant="body2"
-                href={props.post.url}
-                target="_blank"
-                rel="noopener"
-              >
-                Continue Reading
-              </Link>
             </CardContent>
           </div>
           <Hidden xsDown>
             <CardMedia
               className={classes.cardMedia}
-              image={props.post.urlToImage}
-              title={props.post.title}
+              image={newsArticle.urlToImage}
+              title={newsArticle.title}
             />
           </Hidden>
         </Card>

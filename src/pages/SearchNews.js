@@ -10,7 +10,7 @@ import theme from "../theme/Theme.js";
 import NoResultFound from "./NoResultFound";
 import { SearchBar } from "../components/SearchBar";
 import Footer from "../components/Footer";
-import NewsViewResolver from "../helpers/NewsViewResolver";
+import NewsListIterator from "../helpers/NewsListIterator";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,15 +43,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const initialState = {
-  loading: "",
-  error: "",
-  data: [],
-};
-
-const getSearchKeyUrl = (searchTerm, pageNumber) =>
+/* Generate the Search URL */
+const getSearchUrl = (searchTerm, pageNumber) =>
   `http://localhost:5000/search?q=${searchTerm}&page=${pageNumber}`;
 
+/**
+ *  @Page Home Page shown at the root URL
+ *  Home Page for the application
+ *  Renders the search bar to display the news
+ */
 export default function SearchNews() {
   const classes = useStyles();
   const mobileContent = useMediaQuery(theme.breakpoints.down("sm"));
@@ -63,27 +63,22 @@ export default function SearchNews() {
     articles: [],
   });
   const [pages, setPages] = useState(1);
-  const [currentpage, setCurrentPage] = useState();
   const inputRef = useRef();
-  const httpData = useHttp();
-
-  const { isLoading, error, sendRequest: fetchNews } = httpData;
+  const { isLoading, error, sendRequest: fetchNews } = useHttp();
 
   const handleSearch = (event, page = 1) => {
     event.preventDefault();
     const searchKey = inputRef.current.value;
-
     const updateNewsData = (data) => {
       setSearchNews(data);
-      // Free API can only fetch 100 news
+      /* Free API can only fetch 100 news**/
       const updatedPageCount =
         data.totalResults > 100
           ? Math.round(100 / 5)
           : Math.round(data.totalResults / 5);
       setPages(updatedPageCount);
     };
-
-    fetchNews({ url: getSearchKeyUrl(searchKey, page) }, updateNewsData);
+    fetchNews({ url: getSearchUrl(searchKey, page) }, updateNewsData);
   };
 
   const handlePageChange = (event, pageNumber) => {
@@ -91,7 +86,7 @@ export default function SearchNews() {
     handleSearch(event, pageNumber);
   };
 
-  //Dynamically making footer float or fixed
+  /* Dynamically making footer float or fixed **/
   const footerCssClass =
     !isLoading && searchNews.articles.length
       ? classes.postContainerFoot
@@ -99,7 +94,11 @@ export default function SearchNews() {
 
   return (
     <React.Fragment>
-      <SearchBar ref={inputRef} onSubmit={handleSearch} />
+      <SearchBar
+        data-test="component-searchbar"
+        ref={inputRef}
+        onSubmit={handleSearch}
+      />
 
       {/* show circular progress bar while the content is beingloaded*/}
       {isLoading && <CircularProgress className={classes.loader} />}
@@ -110,10 +109,7 @@ export default function SearchNews() {
       {/* show content and pagination when API respinse has articles*/}
       {!isLoading && searchNews.articles.length > 0 && (
         <React.Fragment>
-          <NewsViewResolver
-            newsData={searchNews.articles}
-            mobileContent={mobileContent}
-          />
+          <NewsListIterator newsList={searchNews.articles} />
           <Pagination
             count={pages}
             onChange={handlePageChange}

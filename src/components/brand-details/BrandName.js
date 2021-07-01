@@ -19,7 +19,12 @@ const useStyles = makeStyles({
 export default function BrandName({ brandName }) {
   const classes = useStyles();
   return (
-    <Typography variant="h6" component="h1" className={classes.logo}>
+    <Typography
+      data-test="component-brandname"
+      variant="h6"
+      component="h1"
+      className={classes.logo}
+    >
       {brandName}
     </Typography>
   );

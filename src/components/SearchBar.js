@@ -23,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
 /**
  *  Component Search Bar
  *  Renders the name/title of the webpage
- *  @param props
+ *  @param onSubmit Callback function for the submit
  *  @param ref for the input element
  */
-export const SearchBar = React.forwardRef((props, iref) => {
+export const SearchBar = React.forwardRef(({ onSubmit }, ref) => {
   const classes = useStyles();
 
   const handleChange = (event) => {
@@ -37,7 +37,7 @@ export const SearchBar = React.forwardRef((props, iref) => {
       <Paper component="form" className={classes.root}>
         <InputBase
           onChange={handleChange}
-          inputRef={iref}
+          inputRef={ref}
           className={classes.input}
           fullWidth={true}
           placeholder="Search News with keywords"
@@ -45,7 +45,7 @@ export const SearchBar = React.forwardRef((props, iref) => {
         />
         <IconButton
           type="submit"
-          onClick={props.onSubmit}
+          onClick={onSubmit}
           className={classes.iconButton}
           aria-label="search"
         >

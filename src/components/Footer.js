@@ -8,13 +8,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#639bf1",
     marginTop: "1rem",
     padding: "1rem",
-    //backgroundColor: 'rgb(235, 195, 64)',
     bottom: "0",
     left: "0",
     width: "100%",
   },
 }));
 
+/**
+ *  @Component  Footer Grid
+ *
+ */
 export default function Footer(props) {
   const classes = useStyles();
 
